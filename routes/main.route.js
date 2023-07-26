@@ -1,12 +1,12 @@
 import express from "express";
-import { wss } from "./init";
+import { wss } from "../init.js";
 
 const router = express.Router();
 
 router.get("/", function (req, res) {
     console.log("Event: main event (/get) ");
     wss.clients.forEach(function each(client) {
-        client.send("From Server");
+        client.send("From Server (/get)");
     });
     res.sendStatus(200);
 });

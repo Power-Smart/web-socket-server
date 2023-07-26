@@ -1,3 +1,3 @@
-import WebSocket from "ws";
+import { WebSocketServer } from "ws";
 
-export const wss = WebSocket.Server({ port: 4000 });
+export const wss = new WebSocketServer({ port: 4000 });

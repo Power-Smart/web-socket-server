@@ -1,8 +1,8 @@
 import express from "express";
-import { wss } from "./init";
+import { wss } from "./init.js";
 
 // routes
-import mainRoute from "./routes/main.route";
+import mainRoute from "./routes/main.route.js";
 
 const app = express();
 app.use(express.json());
