@@ -1,9 +1,10 @@
 import express from "express";
 import { wss } from "./init.js";
-import {clients} from "./init.js";
+import { clients } from "./init.js";
 
 // routes
 import mainRoute from "./routes/main.route.js";
+import json from "body-parser/lib/types/json.js";
 
 const app = express();
 app.use(express.json());
@@ -28,9 +29,10 @@ wss.on("connection", function connection(ws) {
     ws.on("message", function incoming(message) {
         console.log("received: %s", message);
 
-        const msgJson = JSON.parse(message);
-        clients.saveClient(msgJson.relayId, ws);
-
+        const { realyId } = JSON.parse(message);
+        console.log(realyId);
+        clients.saveClient([realyId], ws);
+        // console.log(clients.clientList);
     });
 
     ws.on("close", function close() {
