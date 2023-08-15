@@ -16,13 +16,13 @@ export const switchRelays = async (req, res) => {
 
         try {
             Object.entries(switchingScheme).forEach(([key, value]) => {
-                console.log(clients.clientList);
+                // console.log(clients.clientList);
                 if (clients.clientList.hasOwnProperty(key)) {
                     let relay = clients.clientList[key];
                     relay.send(JSON.stringify(value));
-                    foundRelays.push({ key: value });
+                    foundRelays.push({ [key]: value });
                 } else {
-                    notFoundRelays.push({ key: value });
+                    notFoundRelays.push({ [key]: value });
                 }
             });
             res.status(200).json({ foundRelays, notFoundRelays });
