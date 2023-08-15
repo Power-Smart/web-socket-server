@@ -36,7 +36,9 @@ wss.on("connection", function connection(ws) {
     });
 
     ws.on("close", function close() {
+        clients.removeClient(ws);
         console.log("Websocket client disconnected");
+        // console.log(clients.getClients());
     });
 
     ws.send("connected");
