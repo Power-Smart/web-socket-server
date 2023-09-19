@@ -2,7 +2,7 @@ name: Push to Docker Hub
 on:
   push:
     branches:
-      - main
+      - deploy/v1
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKERHUB_TOKEN: ${{ secrets.DOCKER_PASSWORD }}
