@@ -1,5 +1,5 @@
 FROM node:18
-  
+RUN apt install bash
 RUN useradd -ms /bin/bash -u 1000 powersmart
 USER powersmart
 WORKDIR /usr/app
