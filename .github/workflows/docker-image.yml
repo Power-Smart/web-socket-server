@@ -6,6 +6,7 @@ on:
 env:
   DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  REPO_NAME: kavishkasula/websocket-server
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -23,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ github.ref }}
+          tags: ${{ env.REPO_NAME }}
